@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-
+    <h1>hello:{{ msg.userName }}</h1>
   </div>
 </template>
 
@@ -10,7 +9,7 @@ export default {
   name: 'HelloWorld',
   data(){
     return{
-      msg:"hello"
+      msg:this.$route.query.data.data
     }
   }
 }

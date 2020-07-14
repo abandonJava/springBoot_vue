@@ -20,8 +20,8 @@
         data(){
             return{
                 loginForm:{
-                    username:"admin",
-                    password:"123456"
+                    username:"",
+                    password:""
                 }
             }
         },
@@ -33,12 +33,16 @@
                         username: this.loginForm.username,
                         password: this.loginForm.password
                     }
-                }).then(function (res) {
+                }).then(res => {
                     console.log(res);
                     if(res.status === 200){
-                        this.$router.push("/hello");
+                        console.log(this);
+                        this.$store.dispatch("recordUserInfo",res.data.data.userName);
+                        this.$router.push({
+                            path:"/hello",
+                            query:{data:res.data}
+                        });
                     }
-
                 });
             }
         }

@@ -2,10 +2,16 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import HelloWorld from "../components/HelloWorld";
 import Login from "../components/Login";
+import StudentList from "../components/StudentList";
+
 
 Vue.use(VueRouter)
 
 const routes=[
+    {
+        path: "/",
+        redirect: "/login"
+    },
     {
         path: "/hello",
         component: HelloWorld
@@ -13,6 +19,10 @@ const routes=[
     {
         path: "/login",
         component: Login
+    },
+    {
+        path:"/studentList",
+        component:StudentList
     }
 ]
 
